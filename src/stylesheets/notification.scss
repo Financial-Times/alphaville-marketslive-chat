@@ -1,0 +1,49 @@
+.o-chat--notification {
+	display: none;
+	position: absolute;
+	left: 0;
+	width: 100%;
+	overflow: hidden;
+
+	padding: 15px 0;
+	text-align: center;
+
+	.o-chat--notification-button {
+		display: inline-block;
+		background-color: oColorsGetPaletteColor("blue");
+		color: oColorsGetPaletteColor("white");
+		cursor: pointer;
+		padding: 3px 8px;
+		border-radius: 5px;
+		font-size: 13px;
+	}
+
+	.o-chat--notification-icon-downwards {
+		@include oIconsGetIcon('arrow-downwards', oColorsGetPaletteColor('white'), 12);
+	}
+
+	.o-chat--notification-icon-upwards {
+		@include oIconsGetIcon('arrow-upwards', oColorsGetPaletteColor('white'), 12);
+	}
+}
+
+.o-chat--notification-fade-top {
+	$notificatoinFadeColorStart: rgba(246, 233, 216, 1);
+	$notificatoinFadeColorStop: rgba(246, 233, 216, 0);
+
+	background: transparent;
+	background-image: linear-gradient(to bottom, $notificatoinFadeColorStart, $notificatoinFadeColorStop);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFF6E9D8', endColorstr='#00F6E9D8',GradientType=0); /* ie6-9 */
+}
+
+.o-chat--notification-fade-bottom {
+	$notificatoinFadeColorStart: rgba(246, 233, 216, 1);
+	$notificatoinFadeColorStop: rgba(246, 233, 216, 0);
+
+	background: transparent;
+	background-image: linear-gradient(to top, $notificatoinFadeColorStart, $notificatoinFadeColorStop);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00F6E9D8', endColorstr='#FFF6E9D8',GradientType=0); /* ie6-9 */
+
+}

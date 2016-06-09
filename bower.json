@@ -1,0 +1,26 @@
+{
+  "name": "alphaville-marketslive-chat",
+  "main": [
+    "main.js",
+    "main.scss"
+  ],
+  "dependencies": {
+    "o-comment-api": "^2.3.0",
+    "o-comment-ui": "^3.0.0",
+    "o-comment-utilities": "^2.3.0-beta.1",
+    "o-icons": "^4.0.0",
+    "o-date": "^2.3.0",
+    "o-overlay": "^1.4.5",
+    "o-grid": "^4.0.0"
+  },
+  "ignore": [
+    "node_modules",
+    "tests",
+    "Gruntfile.js",
+    "gulpfile.js",
+    "docs",
+    "package.json",
+    ".editorconfig",
+    ".jshintrc"
+  ]
+}

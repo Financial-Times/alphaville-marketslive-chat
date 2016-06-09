@@ -1,0 +1,142 @@
+&.o-chat--order-normal .o-chat--editor-area {
+	margin-bottom: 10px;
+}
+
+&.o-chat--order-inverted {
+	.o-chat--editor-area {
+		margin-top: 10px;
+	}
+
+	&.o-chat--stretch-vertical {
+		@include oGridRespondTo($until: M) {
+			margin-top: 0;
+			margin-bottom: 10px;
+		}
+	}
+}
+
+.o-chat--loggedin {
+	float: left;
+	position: relative;
+
+	.o-chat--admin-links {
+		display: none;
+
+		background: white;
+		padding: 5px;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		z-index: 1000;
+		border: 1px solid oColorsGetPaletteColor("pink-tint4");
+
+		li {
+			border-bottom: 1px solid  oColorsGetPaletteColor("pink-tint4");
+			white-space: nowrap;
+		}
+
+		li:last-child {
+			border: 0;
+		}
+	}
+
+	&:hover {
+		.o-chat--admin-links {
+			display: block;
+		}
+	}
+}
+
+.o-chat--pseudonym {
+	cursor: default;
+}
+
+.o-chat--editor-closed {
+	display: none;
+
+	background: oColorsGetPaletteColor("white");
+	border: 1px solid #b2b2b2;
+	color: oColorsGetPaletteColor("grey-tint4");
+	margin-top: 41px;
+	margin-bottom: 42px;
+	padding: 5px 10px;
+	font-weight: bold;
+	font-size: 13px;
+
+	.o-chat--lock-icon {
+		margin-right: 5px;
+	}
+}
+
+.o-chat--editor-auth-container {
+	margin-bottom: 4px;
+}
+
+.o-comment-ui--settings {
+	float: right;
+}
+
+.o-chat--editor-input {
+	border-top: 1px solid #d66f6c;
+	padding: 5px 10px;
+	background: oColorsGetPaletteColor("white");
+	cursor: text;
+	position: relative;
+
+	&.disabled {
+		background: oColorsGetPaletteColor("pink-tint2");
+	}
+
+	textarea {
+		width: 100%;
+		border: 0;
+		resize: none;
+		padding: 0;
+		height: 30px;
+		margin-top: 5px;
+		outline: 0;
+		color: oColorsGetPaletteColor("grey-tint5");
+		font-family: $o-chat-font-family;
+		font-size: 13px;
+
+		&[disabled] {
+			background: oColorsGetPaletteColor("pink-tint2");
+		}
+	}
+}
+
+.o-chat--editor-error {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	max-width: 50%;
+	padding: 5px 10px;
+	background: oColorsGetPaletteColor("red");
+	color: oColorsGetPaletteColor("white");
+	line-height: 15px;
+	display: none;
+}
+
+.o-chat--editor-footer {
+	border: 1px solid oColorsGetPaletteColor("pink-tint2");
+	border-top: 0;
+}
+
+.o-chat--editor-submit {
+	float: right;
+	cursor: pointer;
+
+	button {
+		font-family: $o-chat-font-family;
+		min-height: 28px;
+		line-height: 28px;
+		border: 1px solid #3d8083;
+		color: #3d8083;
+		background: none;
+		padding: 0 15px;
+	}
+}
+
+.o-chat--editor-container {
+	padding-bottom: 16px;
+}

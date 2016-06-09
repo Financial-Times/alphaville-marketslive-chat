@@ -1,0 +1,21 @@
+a {
+	color: oColorsGetPaletteColor("blue");
+	text-decoration: none;
+
+	&:hover {
+		color: oColorsGetPaletteColor("black");
+	}
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	list-style-position: outside;
+}
+
+.o-chat--clearfix:after {
+	content: "";
+	display: table;
+	clear: both;
+}

@@ -1,0 +1,22 @@
+@import './src/stylesheets/variables';
+
+$o-comment-ui-font-family: $o-chat-font-family !default;
+@import 'o-comment-ui/main';
+
+$o-overlay-is-silent: false;
+@import "o-overlay/main";
+
+@import "o-icons/main";
+
+@import "o-grid/main";
+
+.o-chat {
+	font-family: $o-chat-font-family;
+	font-size: 12px;
+
+	@import './src/stylesheets/generic';
+	@import './src/stylesheets/comments';
+	@import './src/stylesheets/editor';
+}
+
+@import './src/stylesheets/notification';
