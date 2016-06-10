@@ -120,7 +120,7 @@ exports.showInactivityMessage = oCommentUi.userDialogs.showInactivityMessage;
  * @returns {undefined}
  */
 exports.showMessage = function (title, message) {
-	const idOfTheOverlay = "oChat_showMessage";
+	const idOfTheOverlay = "avMarketsliveChat_showMessage";
 	const overlay = new Overlay(idOfTheOverlay, {
 		html: message,
 		heading: {

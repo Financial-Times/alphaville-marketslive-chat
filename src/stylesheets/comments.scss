@@ -1,29 +1,29 @@
-&.o-chat--fixed-height,
-&.o-chat--stretch-vertical {
-	.o-chat--comments-container {
+&.av-marketslive-chat--fixed-height,
+&.av-marketslive-chat--stretch-vertical {
+	.av-marketslive-chat--comments-container {
 		padding-right: 5px;
 	}
 }
 
-.o-chat--comments-wrapper {
+.av-marketslive-chat--comments-wrapper {
 	position: relative;
 }
 
-.o-chat--show-more {
+.av-marketslive-chat--show-more {
 	display: none;
 
 	color: white;
 	text-align: center;
 	position: relative;
 
-	.o-chat--show-more-line {
+	.av-marketslive-chat--show-more-line {
 		position: absolute;
 		top: 50%;
 		width: 100%;
 		border-top: 1px solid oColorsGetPaletteColor("pink-tint2");
 	}
 
-	.o-chat--show-more-label {
+	.av-marketslive-chat--show-more-label {
 		display: inline-block;
 		position: relative;
 		background-color: #4e8fbd;
@@ -34,33 +34,33 @@
 		cursor: pointer;
 	}
 
-	.o-chat--show-more-label:active {
+	.av-marketslive-chat--show-more-label:active {
 		background: oColorsGetPaletteColor("pink-tint4");
 	}
 }
 
-&.o-chat--pagination {
-	&.o-chat--order-normal {
-		.o-chat--show-more-after {
+&.av-marketslive-chat--pagination {
+	&.av-marketslive-chat--order-normal {
+		.av-marketslive-chat--show-more-after {
 			display: block;
 		}
 	}
 
-	&.o-chat--order-inverted {
-		.o-chat--show-more-before {
+	&.av-marketslive-chat--order-inverted {
+		.av-marketslive-chat--show-more-before {
 			display: block;
 		}
 	}
 
-	&.o-chat--stretch-vertical,
-	&.o-chat--fixed-height {
-		.o-chat--show-more {
+	&.av-marketslive-chat--stretch-vertical,
+	&.av-marketslive-chat--fixed-height {
+		.av-marketslive-chat--show-more {
 			display: none;
 		}
 	}
 }
 
-.o-chat--wrapper {
+.av-marketslive-chat--wrapper {
 	color: #654428;
 	border-bottom: 1px solid #f4cec1;
 	padding: 10px 0;
@@ -72,7 +72,7 @@
 		display: inline;
 	}
 
-	&.o-chat--delete-progress {
+	&.av-marketslive-chat--delete-progress {
 		// scss-lint:disable VendorPrefixes
 		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
 		// scss-lint:enable VendorPrefixes
@@ -84,33 +84,33 @@
 		border-bottom: 0;
 	}
 
-	.o-chat--timestamp {
+	.av-marketslive-chat--timestamp {
 		display: block;
 		float: left;
 		font-weight: bold;
 		color: #a16b78;
 	}
 
-	.o-chat--author {
+	.av-marketslive-chat--author {
 		display: block;
 		font-weight: bold;
 		float: right;
 		color: #6e6964;
 	}
 
-	.o-chat--content {
+	.av-marketslive-chat--content {
 		display: block;
 		clear: both;
 		color: #654428;
 		padding-top: 10px;
 	}
 
-	.o-chat--delete {
+	.av-marketslive-chat--delete {
 		float: right;
 		padding: 0 10px;
 	}
 
-	.o-chat--blocked {
+	.av-marketslive-chat--blocked {
 		background-color: oColorsGetPaletteColor("red");
 		border-radius: 15px;
 		color: white;
@@ -120,7 +120,7 @@
 		font-size: 11px;
 	}
 
-	.o-chat--pending {
+	.av-marketslive-chat--pending {
 		background-color: oColorsGetPaletteColor("orange");
 		border-radius: 15px;
 		color: white;
@@ -131,8 +131,8 @@
 	}
 }
 
-&.o-chat--stretch-vertical.o-chat--order-inverted {
-	.o-chat--comments-area {
+&.av-marketslive-chat--stretch-vertical.av-marketslive-chat--order-inverted {
+	.av-marketslive-chat--comments-area {
 		display: flex;
 		flex-direction: column;
 

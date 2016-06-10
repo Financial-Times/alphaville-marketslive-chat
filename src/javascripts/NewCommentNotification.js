@@ -18,8 +18,8 @@ function NewCommentNotification (widgetUi, container, position) {
 		position: position,
 		arrowIconClass: (position === 'bottom' ? 'downwards' : 'upwards')
 	})));
-	let notificationElement = document.querySelector('#o-chat--notification-' + notificationId);
-	let notificationButton = document.querySelector('.o-chat--notification-button', notificationElement);
+	let notificationElement = document.querySelector('#av-marketslive-chat--notification-' + notificationId);
+	let notificationButton = document.querySelector('.av-marketslive-chat--notification-button', notificationElement);
 
 
 	let onClickButton = function () {

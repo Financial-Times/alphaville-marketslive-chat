@@ -43,9 +43,9 @@ function WidgetUi (widgetContainer, config) {
 		if (isOpen === false) {
 			isOpen = true;
 
-			self.widgetContainer.querySelector('.o-chat--editor-closed').style.display = 'none';
-			self.widgetContainer.querySelector('.o-chat--editor-input').style.display = 'block';
-			self.widgetContainer.querySelector('.o-chat--editor-footer').style.display = 'block';
+			self.widgetContainer.querySelector('.av-marketslive-chat--editor-closed').style.display = 'none';
+			self.widgetContainer.querySelector('.av-marketslive-chat--editor-input').style.display = 'block';
+			self.widgetContainer.querySelector('.av-marketslive-chat--editor-footer').style.display = 'block';
 		}
 	};
 
@@ -53,9 +53,9 @@ function WidgetUi (widgetContainer, config) {
 		if (isOpen === true) {
 			isOpen = false;
 
-			self.widgetContainer.querySelector('.o-chat--editor-closed').style.display = 'block';
-			self.widgetContainer.querySelector('.o-chat--editor-input').style.display = 'none';
-			self.widgetContainer.querySelector('.o-chat--editor-footer').style.display = 'none';
+			self.widgetContainer.querySelector('.av-marketslive-chat--editor-closed').style.display = 'block';
+			self.widgetContainer.querySelector('.av-marketslive-chat--editor-input').style.display = 'none';
+			self.widgetContainer.querySelector('.av-marketslive-chat--editor-footer').style.display = 'none';
 		}
 	};
 
@@ -109,21 +109,21 @@ function WidgetUi (widgetContainer, config) {
 
 
 		// save DOM elements
-		elements.commentContainer = self.widgetContainer.querySelector('.o-chat--comments-container');
-		elements.commentArea = self.widgetContainer.querySelector('.o-chat--comments-area');
-		elements.editorContainer = self.widgetContainer.querySelector('.o-chat--editor-container');
-		elements.editorArea = self.widgetContainer.querySelector('.o-chat--editor-area');
-		elements.editorAuthContainer = self.widgetContainer.querySelector('.o-chat--editor-auth-container');
-		elements.editorAuth = self.widgetContainer.querySelector('.o-chat--editor-auth');
-		elements.signIn = self.widgetContainer.querySelector('.o-chat--signIn');
-		elements.postCommentButton = self.widgetContainer.querySelector('.o-chat--editor-submit > button');
-		elements.editorInput = self.widgetContainer.querySelector('.o-chat--editor-input');
+		elements.commentContainer = self.widgetContainer.querySelector('.av-marketslive-chat--comments-container');
+		elements.commentArea = self.widgetContainer.querySelector('.av-marketslive-chat--comments-area');
+		elements.editorContainer = self.widgetContainer.querySelector('.av-marketslive-chat--editor-container');
+		elements.editorArea = self.widgetContainer.querySelector('.av-marketslive-chat--editor-area');
+		elements.editorAuthContainer = self.widgetContainer.querySelector('.av-marketslive-chat--editor-auth-container');
+		elements.editorAuth = self.widgetContainer.querySelector('.av-marketslive-chat--editor-auth');
+		elements.signIn = self.widgetContainer.querySelector('.av-marketslive-chat--signIn');
+		elements.postCommentButton = self.widgetContainer.querySelector('.av-marketslive-chat--editor-submit > button');
+		elements.editorInput = self.widgetContainer.querySelector('.av-marketslive-chat--editor-input');
 		elements.editorInputTextarea = elements.editorInput.querySelector('textarea');
-		elements.editorErrorContainer = self.widgetContainer.querySelector('.o-chat--editor-error');
+		elements.editorErrorContainer = self.widgetContainer.querySelector('.av-marketslive-chat--editor-error');
 		elements.showMore = {
-			before: self.widgetContainer.querySelector('.o-chat--show-more-before'),
-			after: self.widgetContainer.querySelector('.o-chat--show-more-after'),
-			labels: self.widgetContainer.querySelectorAll('.o-chat--show-more .o-chat--show-more-label')
+			before: self.widgetContainer.querySelector('.av-marketslive-chat--show-more-before'),
+			after: self.widgetContainer.querySelector('.av-marketslive-chat--show-more-after'),
+			labels: self.widgetContainer.querySelectorAll('.av-marketslive-chat--show-more .av-marketslive-chat--show-more-label')
 		};
 
 
@@ -168,7 +168,7 @@ function WidgetUi (widgetContainer, config) {
 
 		if (adminMode) {
 			elements.commentContainer.addEventListener('click', function (event) {
-				if (event.target.className === 'o-chat--delete') {
+				if (event.target.className === 'av-marketslive-chat--delete') {
 					try {
 						const commentId = event.target.parentNode.id.match(/commentid-([0-9]+)/)[1];
 
@@ -186,11 +186,11 @@ function WidgetUi (widgetContainer, config) {
 	};
 
 	this.enablePagination = function () {
-		widgetContainer.classList.add('o-chat--pagination');
+		widgetContainer.classList.add('av-marketslive-chat--pagination');
 	};
 
 	this.disablePagination = function () {
-		widgetContainer.classList.remove('o-chat--pagination');
+		widgetContainer.classList.remove('av-marketslive-chat--pagination');
 	};
 
 	// poll for the existence of container
@@ -201,7 +201,7 @@ function WidgetUi (widgetContainer, config) {
 				return;
 			}
 
-			if (self.widgetContainer.querySelector('.o-chat--editor-container')) {
+			if (self.widgetContainer.querySelector('.av-marketslive-chat--editor-container')) {
 				clearInterval(pollForContainerInterv);
 				callback();
 			}
@@ -209,7 +209,7 @@ function WidgetUi (widgetContainer, config) {
 	}
 
 	this.adaptToHeight = function (height) {
-		widgetContainer.classList.add('o-chat--fixed-height');
+		widgetContainer.classList.add('av-marketslive-chat--fixed-height');
 
 		const adapt = executeWhenNotDestroyed(function () {
 			if (!adaptedToHeight) {
@@ -260,7 +260,7 @@ function WidgetUi (widgetContainer, config) {
 		const clear = function () {
 			adaptedToHeight = false;
 			elements.commentArea.style.height = 'auto';
-			widgetContainer.classList.remove('o-chat--fixed-height');
+			widgetContainer.classList.remove('av-marketslive-chat--fixed-height');
 		};
 
 		pollForContainer(clear);
@@ -313,13 +313,13 @@ function WidgetUi (widgetContainer, config) {
 	this.clearStretch = function () {
 		window.removeEventListener('resize', onResizeFetch);
 		suspendVerticalStretch();
-		widgetContainer.classList.remove('o-chat--stretch-vertical');
+		widgetContainer.classList.remove('av-marketslive-chat--stretch-vertical');
 	};
 
 	this.stretchVertical = function () {
 		window.addEventListener('resize', onResizeFetch);
 		onResizeFetch();
-		widgetContainer.classList.add('o-chat--stretch-vertical');
+		widgetContainer.classList.add('av-marketslive-chat--stretch-vertical');
 	};
 
 
@@ -327,7 +327,7 @@ function WidgetUi (widgetContainer, config) {
 
 		function initScrollPagination () {
 			scrollMonitor = new oCommentUtilities.dom.ScrollMonitor(elements.commentArea, function (scrollPos) {
-				if (!widgetContainer.classList.contains('o-chat--stretch-vertical') || ['default', 'S'].indexOf(oGrid.getCurrentLayout()) === -1) {
+				if (!widgetContainer.classList.contains('av-marketslive-chat--stretch-vertical') || ['default', 'S'].indexOf(oGrid.getCurrentLayout()) === -1) {
 					if (config.orderType === 'inverted') {
 						if (scrollPos < 0.2 * elements.commentArea.scrollHeight) {
 							events.trigger('nextPage');
@@ -382,7 +382,7 @@ function WidgetUi (widgetContainer, config) {
 	};
 
 	this.getCurrentPseudonym = function () {
-		const pseudonymArea = elements.editorAuth.querySelector('.o-chat--pseudonym');
+		const pseudonymArea = elements.editorAuth.querySelector('.av-marketslive-chat--pseudonym');
 
 		if (pseudonymArea) {
 			return pseudonymArea.innerHTML;
@@ -456,7 +456,7 @@ function WidgetUi (widgetContainer, config) {
 		);
 
 
-		const comments = elements.commentContainer.querySelectorAll('.o-chat--wrapper');
+		const comments = elements.commentContainer.querySelectorAll('.av-marketslive-chat--wrapper');
 		let i;
 		let inserted = false;
 
@@ -562,7 +562,7 @@ function WidgetUi (widgetContainer, config) {
 	};
 
 	this.updateComment = function (id, newContent) {
-		const commentContentEl = self.widgetContainer.querySelector('#commentid-' + id + ' .o-chat--content');
+		const commentContentEl = self.widgetContainer.querySelector('#commentid-' + id + ' .av-marketslive-chat--content');
 		if (commentContentEl) {
 			commentContentEl.innerHTML = newContent;
 		}
@@ -571,14 +571,14 @@ function WidgetUi (widgetContainer, config) {
 	this.markCommentAsDeleteInProgress = function (id) {
 		const comment = self.widgetContainer.querySelector('#commentid-'+id);
 		if (comment) {
-			comment.className += " o-chat--delete-progress";
+			comment.className += " av-marketslive-chat--delete-progress";
 		}
 	};
 
 	this.markCommentAsDeleteInProgressEnded = function (id) {
 		const comment = self.widgetContainer.querySelector('#commentid-'+id);
 		if (comment) {
-			comment.className = comment.className.replace("o-chat--delete-progress", "");
+			comment.className = comment.className.replace("av-marketslive-chat--delete-progress", "");
 		}
 	};
 
@@ -603,7 +603,7 @@ function WidgetUi (widgetContainer, config) {
 	};
 
 	this.addSettingsLink = function (options) {
-		const loginBarContainer = self.widgetContainer.querySelector('.o-chat--editor-auth');
+		const loginBarContainer = self.widgetContainer.querySelector('.av-marketslive-chat--editor-auth');
 
 		if (loginBarContainer) {
 			loginBarContainer.appendChild(oCommentUi.utils.toDOM(oCommentUi.templates.commentingSettingsLink.render({
@@ -647,11 +647,11 @@ function WidgetUi (widgetContainer, config) {
 		const commentElement = self.widgetContainer.querySelector('#commentid-'+ commentId);
 
 		if (type === 'blocked' || type === 'pending') {
-			if (commentElement && !commentElement.querySelector('.o-chat--' + type)) {
+			if (commentElement && !commentElement.querySelector('.av-marketslive-chat--' + type)) {
 				const badgeElement = document.createElement('div');
 
 				badgeElement.innerHTML = type;
-				badgeElement.className = 'o-chat--' + type;
+				badgeElement.className = 'av-marketslive-chat--' + type;
 
 				commentElement.insertBefore(badgeElement, commentElement.firstChild);
 				scrollToLastComment();
@@ -664,7 +664,7 @@ function WidgetUi (widgetContainer, config) {
 
 		if (type === 'blocked' || type === 'pending') {
 			if (commentElement) {
-				const badge = commentElement.querySelector('.o-chat--' + type);
+				const badge = commentElement.querySelector('.av-marketslive-chat--' + type);
 
 				if (badge) {
 					badge.parentNode.removeChild(badge);

@@ -1,4 +1,4 @@
-.o-chat--notification {
+.av-marketslive-chat--notification {
 	display: none;
 	position: absolute;
 	left: 0;
@@ -8,7 +8,7 @@
 	padding: 15px 0;
 	text-align: center;
 
-	.o-chat--notification-button {
+	.av-marketslive-chat--notification-button {
 		display: inline-block;
 		background-color: oColorsGetPaletteColor("blue");
 		color: oColorsGetPaletteColor("white");
@@ -18,16 +18,16 @@
 		font-size: 13px;
 	}
 
-	.o-chat--notification-icon-downwards {
+	.av-marketslive-chat--notification-icon-downwards {
 		@include oIconsGetIcon('arrow-downwards', oColorsGetPaletteColor('white'), 12);
 	}
 
-	.o-chat--notification-icon-upwards {
+	.av-marketslive-chat--notification-icon-upwards {
 		@include oIconsGetIcon('arrow-upwards', oColorsGetPaletteColor('white'), 12);
 	}
 }
 
-.o-chat--notification-fade-top {
+.av-marketslive-chat--notification-fade-top {
 	$notificatoinFadeColorStart: rgba(246, 233, 216, 1);
 	$notificatoinFadeColorStop: rgba(246, 233, 216, 0);
 
@@ -37,7 +37,7 @@
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFF6E9D8', endColorstr='#00F6E9D8',GradientType=0); /* ie6-9 */
 }
 
-.o-chat--notification-fade-bottom {
+.av-marketslive-chat--notification-fade-bottom {
 	$notificatoinFadeColorStart: rgba(246, 233, 216, 1);
 	$notificatoinFadeColorStop: rgba(246, 233, 216, 0);
 

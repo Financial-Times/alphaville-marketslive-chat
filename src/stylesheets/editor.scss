@@ -1,13 +1,13 @@
-&.o-chat--order-normal .o-chat--editor-area {
+&.av-marketslive-chat--order-normal .av-marketslive-chat--editor-area {
 	margin-bottom: 10px;
 }
 
-&.o-chat--order-inverted {
-	.o-chat--editor-area {
+&.av-marketslive-chat--order-inverted {
+	.av-marketslive-chat--editor-area {
 		margin-top: 10px;
 	}
 
-	&.o-chat--stretch-vertical {
+	&.av-marketslive-chat--stretch-vertical {
 		@include oGridRespondTo($until: M) {
 			margin-top: 0;
 			margin-bottom: 10px;
@@ -15,11 +15,11 @@
 	}
 }
 
-.o-chat--loggedin {
+.av-marketslive-chat--loggedin {
 	float: left;
 	position: relative;
 
-	.o-chat--admin-links {
+	.av-marketslive-chat--admin-links {
 		display: none;
 
 		background: white;
@@ -41,17 +41,17 @@
 	}
 
 	&:hover {
-		.o-chat--admin-links {
+		.av-marketslive-chat--admin-links {
 			display: block;
 		}
 	}
 }
 
-.o-chat--pseudonym {
+.av-marketslive-chat--pseudonym {
 	cursor: default;
 }
 
-.o-chat--editor-closed {
+.av-marketslive-chat--editor-closed {
 	display: none;
 
 	background: oColorsGetPaletteColor("white");
@@ -63,12 +63,12 @@
 	font-weight: bold;
 	font-size: 13px;
 
-	.o-chat--lock-icon {
+	.av-marketslive-chat--lock-icon {
 		margin-right: 5px;
 	}
 }
 
-.o-chat--editor-auth-container {
+.av-marketslive-chat--editor-auth-container {
 	margin-bottom: 4px;
 }
 
@@ -76,7 +76,7 @@
 	float: right;
 }
 
-.o-chat--editor-input {
+.av-marketslive-chat--editor-input {
 	border-top: 1px solid #d66f6c;
 	padding: 5px 10px;
 	background: oColorsGetPaletteColor("white");
@@ -96,7 +96,7 @@
 		margin-top: 5px;
 		outline: 0;
 		color: oColorsGetPaletteColor("grey-tint5");
-		font-family: $o-chat-font-family;
+		font-family: $av-marketslive-chat-font-family;
 		font-size: 13px;
 
 		&[disabled] {
@@ -105,7 +105,7 @@
 	}
 }
 
-.o-chat--editor-error {
+.av-marketslive-chat--editor-error {
 	position: absolute;
 	bottom: 0;
 	right: 0;
@@ -117,17 +117,17 @@
 	display: none;
 }
 
-.o-chat--editor-footer {
+.av-marketslive-chat--editor-footer {
 	border: 1px solid oColorsGetPaletteColor("pink-tint2");
 	border-top: 0;
 }
 
-.o-chat--editor-submit {
+.av-marketslive-chat--editor-submit {
 	float: right;
 	cursor: pointer;
 
 	button {
-		font-family: $o-chat-font-family;
+		font-family: $av-marketslive-chat-font-family;
 		min-height: 28px;
 		line-height: 28px;
 		border: 1px solid #3d8083;
@@ -137,6 +137,6 @@
 	}
 }
 
-.o-chat--editor-container {
+.av-marketslive-chat--editor-container {
 	padding-bottom: 16px;
 }
