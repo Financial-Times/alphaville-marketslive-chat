@@ -62,14 +62,14 @@ const Widget = function () {
 
 
 	// add appropriate classes to the widget container
-	if (this.getWidgetEl().className.indexOf('av-marketslive-chat') === -1) {
-		this.getWidgetEl().className += ' av-marketslive-chat';
+	if (this.getWidgetEl().className.indexOf('alphaville-marketslive-chat') === -1) {
+		this.getWidgetEl().className += ' alphaville-marketslive-chat';
 	}
-	this.getWidgetEl().className += ' av-marketslive-chat--order-' + this.config.order;
-	this.getWidgetEl().setAttribute('data-av-marketslive-chat-built', 'true');
+	this.getWidgetEl().className += ' alphaville-marketslive-chat--order-' + this.config.order;
+	this.getWidgetEl().setAttribute('data-alphaville-marketslive-chat-built', 'true');
 
 	if (this.config.layout) {
-		this.getWidgetEl().className += ' av-marketslive-chat--comment-layout-' + this.config.layout;
+		this.getWidgetEl().className += ' alphaville-marketslive-chat--comment-layout-' + this.config.layout;
 	}
 
 	/**
@@ -984,7 +984,7 @@ const Widget = function () {
 		this.init.call(this);
 	}
 };
-oCommentUi.Widget.__extend(Widget, 'avMarketsliveChat', 'av-marketslive-chat');
+oCommentUi.Widget.__extend(Widget, 'alphavilleMarketsliveChat', 'alphaville-marketslive-chat');
 
 Widget.__extend = function(child, eventNamespace, classNamespace) {
 	if (typeof Object.create === 'function') {

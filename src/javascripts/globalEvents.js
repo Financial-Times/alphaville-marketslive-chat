@@ -4,11 +4,11 @@ const on = function (eventName, eventNamespace, eventHandler) {
 exports.on = function (eventName, eventNamespace, eventHandler) {
 	if (typeof eventNamespace === 'function') {
 		eventHandler = eventNamespace;
-		eventNamespace = 'avMarketsliveChat';
+		eventNamespace = 'alphavilleMarketsliveChat';
 	}
 
 	if (!eventNamespace) {
-		eventNamespace = 'avMarketsliveChat';
+		eventNamespace = 'alphavilleMarketsliveChat';
 	}
 
 	if (document.body) {
@@ -26,11 +26,11 @@ const off = function (eventName, eventNamespace, eventHandler) {
 exports.off = function (eventName, eventNamespace, eventHandler) {
 	if (typeof eventNamespace === 'function') {
 		eventHandler = eventNamespace;
-		eventNamespace = 'avMarketsliveChat';
+		eventNamespace = 'alphavilleMarketsliveChat';
 	}
 
 	if (!eventNamespace) {
-		eventNamespace = 'avMarketsliveChat';
+		eventNamespace = 'alphavilleMarketsliveChat';
 	}
 
 	if (document.body) {
@@ -52,11 +52,11 @@ const trigger = function (eventName, eventNamespace, data) {
 exports.trigger = function (eventName, eventNamespace, data) {
 	if (typeof data === 'undefined') {
 		data = eventNamespace;
-		eventNamespace = 'avMarketsliveChat';
+		eventNamespace = 'alphavilleMarketsliveChat';
 	}
 
 	if (!eventNamespace) {
-		eventNamespace = 'avMarketsliveChat';
+		eventNamespace = 'alphavilleMarketsliveChat';
 	}
 
 	if (document.body) {

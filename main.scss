@@ -1,6 +1,6 @@
 @import './src/stylesheets/variables';
 
-$o-comment-ui-font-family: $o-chat-font-family !default;
+$o-comment-ui-font-family: $alphaville-marketslive-chat-font-family !default;
 @import 'o-comment-ui/main';
 
 $o-overlay-is-silent: false;
@@ -10,8 +10,8 @@ $o-overlay-is-silent: false;
 
 @import "o-grid/main";
 
-.o-chat {
-	font-family: $o-chat-font-family;
+.alphaville-marketslive-chat {
+	font-family: $alphaville-marketslive-chat-font-family;
 	font-size: 12px;
 
 	@import './src/stylesheets/generic';

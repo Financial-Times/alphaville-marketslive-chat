@@ -1,19 +1,19 @@
-<li class="av-marketslive-chat--wrapper av-marketslive-chat--clearfix" {{#commentId}}id="commentid-{{commentId}}"{{/commentId}} data-timestamp="{{timestamp}}">
-	<span class="av-marketslive-chat--timestamp">
+<li class="alphaville-marketslive-chat--wrapper alphaville-marketslive-chat--clearfix" {{#commentId}}id="commentid-{{commentId}}"{{/commentId}} data-timestamp="{{timestamp}}">
+	<span class="alphaville-marketslive-chat--timestamp">
 		<time class="{{#relativeTime}}o-date{{/relativeTime}}" datetime="{{datetime}}">
 			{{dateToShow}}&nbsp;
 		</time>
 	</span>
 
-	<div class="av-marketslive-chat--author">
+	<div class="alphaville-marketslive-chat--author">
 		{{author.displayName}}
 	</div>
 
-	<div class="av-marketslive-chat--content">
+	<div class="alphaville-marketslive-chat--content">
 		{{{content}}}
 	</div>
 
 	{{#adminMode}}
-		<a href="#" class="av-marketslive-chat--delete">Delete</a>
+		<a href="#" class="alphaville-marketslive-chat--delete">Delete</a>
 	{{/adminMode}}
 </li>

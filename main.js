@@ -46,8 +46,8 @@ module.exports.setConfig = function () {
 module.exports.init = function (el) {
 	return oCommentUtilities.initDomConstruct({
 		context: el,
-		classNamespace: 'o-chat',
-		eventNamespace: 'oChat',
+		classNamespace: 'alphaville-marketslive-chat',
+		eventNamespace: 'alphavilleMarketsliveChat',
 		module: module.exports
 	});
 };
@@ -81,7 +81,7 @@ module.exports.setLoggingLevel = function () {
 
 document.addEventListener('o.DOMContentLoaded', function () {
 	try {
-		const configInDomEl = document.querySelector('script[type="application/json"][data-o-chat-config]');
+		const configInDomEl = document.querySelector('script[type="application/json"][data-alphaville-marketslive-chat-config]');
 		if (configInDomEl) {
 			const configInDom = JSON.parse(configInDomEl.innerHTML);
 
@@ -92,8 +92,8 @@ document.addEventListener('o.DOMContentLoaded', function () {
 	}
 
 	oCommentUtilities.initDomConstruct({
-		classNamespace: 'o-chat',
-		eventNamespace: 'oChat',
+		classNamespace: 'alphaville-marketslive-chat',
+		eventNamespace: 'alphavilleMarketsliveChat',
 		module: module.exports,
 		auto: true
 	});

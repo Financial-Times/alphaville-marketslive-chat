@@ -5,7 +5,7 @@ const oCommentUtilities = require('o-comment-utilities');
  * Base name for the message queue session storage container, which is completed with the collectionId.
  * @type {String}
  */
-const storageBaseName = "av-marketslive-chat-comment-queue-";
+const storageBaseName = "alphaville-marketslive-chat-comment-queue-";
 
 /**
  * MessageQueue saves a message to the session storage to preserve it
