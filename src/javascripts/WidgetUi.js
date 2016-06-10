@@ -111,6 +111,7 @@ function WidgetUi (widgetContainer, config) {
 		// save DOM elements
 		elements.commentContainer = self.widgetContainer.querySelector('.alphaville-marketslive-chat--comments-container');
 		elements.commentArea = self.widgetContainer.querySelector('.alphaville-marketslive-chat--comments-area');
+		elements.commentAreaWrapper = self.widgetContainer.querySelector('.alphaville-marketslive-chat--comments-wrapper');
 		elements.editorContainer = self.widgetContainer.querySelector('.alphaville-marketslive-chat--editor-container');
 		elements.editorArea = self.widgetContainer.querySelector('.alphaville-marketslive-chat--editor-area');
 		elements.editorAuthContainer = self.widgetContainer.querySelector('.alphaville-marketslive-chat--editor-auth-container');
@@ -208,59 +209,10 @@ function WidgetUi (widgetContainer, config) {
 		}, 200);
 	}
 
-	this.adaptToHeight = function (height) {
-		widgetContainer.classList.add('alphaville-marketslive-chat--fixed-height');
-
-		const adapt = executeWhenNotDestroyed(function () {
-			if (!adaptedToHeight) {
-				if (isPagination) {
-					initScrollPagination();
-				}
-			}
-
-			const editorComputedStyle = oCommentUi.utils.getComputedStyle(elements.editorArea);
-
-			let editorAreaMarginTopValue;
-			const editorAreaMarginTop = editorComputedStyle.getPropertyValue('margin-top');
-			if (editorAreaMarginTop.indexOf('px') !== -1) {
-				editorAreaMarginTopValue = parseInt(editorAreaMarginTop.replace('px', ''), 10);
-			} else {
-				editorAreaMarginTopValue = 0;
-			}
-
-			let editorAreaMarginBottomValue;
-			const editorAreaMarginBottom = editorComputedStyle.getPropertyValue('margin-bottom');
-			if (editorAreaMarginBottom.indexOf('px') !== -1) {
-				editorAreaMarginBottomValue = parseInt(editorAreaMarginBottom.replace('px', ''), 10);
-			} else {
-				editorAreaMarginBottomValue = 0;
-			}
-
-			const editorHeight = elements.editorArea.clientHeight + editorAreaMarginTopValue + editorAreaMarginBottomValue;
-
-			const targetHeight = height - editorHeight;
-
-			elements.commentArea.style.overflow = "auto";
-			elements.commentArea.style.height = targetHeight + "px";
-
-			scrollToLastComment();
-
-			if (!adaptedToHeight) {
-				adaptedToHeight = true;
-
-				oCommentUtilities.logger.debug("adapt to height, scroll to last");
-				initNotification();
-			}
-		});
-
-		pollForContainer(adapt);
-	};
-
 	this.clearHeight = function () {
 		const clear = function () {
 			adaptedToHeight = false;
 			elements.commentArea.style.height = 'auto';
-			widgetContainer.classList.remove('alphaville-marketslive-chat--fixed-height');
 		};
 
 		pollForContainer(clear);
@@ -269,6 +221,7 @@ function WidgetUi (widgetContainer, config) {
 	function adjustStretchVertical () {
 		const stretch = function () {
 			if (!adaptedToHeight) {
+				initScrollFade();
 				if (isPagination) {
 					initScrollPagination();
 				}
@@ -327,17 +280,33 @@ function WidgetUi (widgetContainer, config) {
 
 		function initScrollPagination () {
 			scrollMonitor = new oCommentUtilities.dom.ScrollMonitor(elements.commentArea, function (scrollPos) {
-				if (!widgetContainer.classList.contains('alphaville-marketslive-chat--stretch-vertical') || ['default', 'S'].indexOf(oGrid.getCurrentLayout()) === -1) {
-					if (config.orderType === 'inverted') {
-						if (scrollPos < 0.2 * elements.commentArea.scrollHeight) {
-							events.trigger('nextPage');
-							oCommentUtilities.logger.debug('nextPage');
-						}
-					} else {
-						if (scrollPos + elements.commentArea.clientHeight > 0.8 * elements.commentArea.scrollHeight) {
-							events.trigger('nextPage');
-							oCommentUtilities.logger.debug('nextPage');
-						}
+				if (config.orderType === 'inverted') {
+					if (scrollPos < 0.2 * elements.commentArea.scrollHeight) {
+						events.trigger('nextPage');
+						oCommentUtilities.logger.debug('nextPage');
+					}
+				} else {
+					if (scrollPos + elements.commentArea.clientHeight > 0.8 * elements.commentArea.scrollHeight) {
+						events.trigger('nextPage');
+						oCommentUtilities.logger.debug('nextPage');
+					}
+				}
+			});
+		}
+
+		function initScrollFade () {
+			const fadeTopElement = elements.commentAreaWrapper.querySelector('.alphaville-marketslive-chat--fade-top');
+			const fadeBottomElement = elements.commentAreaWrapper.querySelector('.alphaville-marketslive-chat--fade-bottom');
+
+			scrollMonitor = new oCommentUtilities.dom.ScrollMonitor(elements.commentArea, function (scrollPos) {
+				if (elements.commentArea.scrollHeight !== elements.commentArea.clientHeight) {
+					fadeTopElement.style.display = 'block';
+					fadeBottomElement.style.display = 'block';
+
+					if (scrollPos === 0) {
+						fadeTopElement.style.display = 'none';
+					} else if (scrollPos + elements.commentArea.clientHeight === elements.commentArea.scrollHeight) {
+						fadeBottomElement.style.display = 'none';
 					}
 				}
 			});

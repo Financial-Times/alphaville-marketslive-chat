@@ -361,20 +361,6 @@ const Widget = function () {
 		}
 	};
 
-	/**
-	 * Calling this method with a height in pixels as parameter will adapt the UI
-	 * to shrink within that height. If the current UI is smaller, it will fill the
-	 * space to occupy the full height, or if the current UI is taller, a scroll
-	 * will appear on the comments.
-	 *
-	 * @param  {Number} height Desired height in pixels.
-	 * @returns {undefined}
-	 */
-	this.adaptToHeight = function (height) {
-		if (height) {
-			self.ui.adaptToHeight(height);
-		}
-	};
 
 	this.clearHeight = function () {
 		self.ui.clearHeight();
@@ -387,12 +373,6 @@ const Widget = function () {
 	this.clearStretch = function () {
 		self.ui.clearStretch();
 	};
-
-	if (self.config.height) {
-		if (!destroyed) {
-			self.adaptToHeight(self.config.height);
-		}
-	}
 
 	if (self.config.stretchVertical) {
 		if (!destroyed) {
