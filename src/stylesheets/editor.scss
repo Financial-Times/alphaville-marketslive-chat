@@ -69,11 +69,7 @@
 }
 
 .alphaville-marketslive-chat--editor-auth-container {
-	margin-bottom: 4px;
-}
-
-.o-comment-ui--settings {
-	float: right;
+	float: left;
 }
 
 .alphaville-marketslive-chat--editor-input {
@@ -107,8 +103,8 @@
 
 .alphaville-marketslive-chat--editor-error {
 	position: absolute;
-	bottom: 0;
-	right: 0;
+	top: 0;
+	left: 0;
 	max-width: 50%;
 	padding: 5px 10px;
 	background: oColorsGetPaletteColor("red");

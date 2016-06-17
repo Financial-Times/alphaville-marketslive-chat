@@ -573,16 +573,11 @@ function WidgetUi (widgetContainer, config) {
 	this.addSettingsLink = function (options) {
 		const loginBarContainer = self.widgetContainer.querySelector('.alphaville-marketslive-chat--editor-auth');
 
-		if (loginBarContainer) {
-			loginBarContainer.appendChild(oCommentUi.utils.toDOM(oCommentUi.templates.commentingSettingsLink.render({
-				label: "Edit pseudonym",
-				withoutSeparator: true
-			})));
-		} else {
+		if (!loginBarContainer) {
 			return;
 		}
 
-		const settingsLink = loginBarContainer.querySelector('.o-comment-ui--settings-text');
+		const settingsLink = loginBarContainer.querySelector('.alphaville-marketslive-chat--edit-pseudonym');
 		if (settingsLink) {
 			settingsLink.addEventListener('click', function () {
 				if (options && typeof options.onClick === 'function') {
