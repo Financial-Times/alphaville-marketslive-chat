@@ -77,7 +77,6 @@ function WidgetUi (widgetContainer, config) {
 				oCommentUi.utils.toDOM(
 					templates.editor.render({
 						submitButtonLabel: "Submit",
-						termMessageTemplate: oCommentUi.templates.termsAndGuidelinesTemplate.render(),
 						signInTemplate: templates.signIn.render()
 					})
 				)
