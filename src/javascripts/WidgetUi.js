@@ -219,15 +219,15 @@ function WidgetUi (widgetContainer, config) {
 
 
 
-	let viewportHeightPollingInterval;
-	let viewportHeightPollingActive = false;
-	let lastViewportHeight;
+	let documentHeightPollingInterval;
+	let documentHeightPollingActive = false;
+	let lastDocumentHeight;
 
 
 	function viewportHeightPolling () {
-		const viewportHeight = oCommentUtilities.dom.windowSize().height;
+		const viewportHeight = document.body.clientHeight;
 
-		if (viewportHeight !== lastViewportHeight) {
+		if (viewportHeight !== lastDocumentHeight) {
 			adjustStretchVertical();
 		}
 	}
@@ -262,12 +262,14 @@ function WidgetUi (widgetContainer, config) {
 			elements.commentArea.style.overflow = "auto";
 			elements.commentArea.style.height = targetHeight + "px";
 
+			lastDocumentHeight = document.body.clientHeight;
+
 
 			scrollToLastComment();
 
-			if (!viewportHeightPollingActive) {
-				viewportHeightPollingActive = true;
-				viewportHeightPollingInterval = setInterval(viewportHeightPolling, 1000);
+			if (!documentHeightPollingActive) {
+				documentHeightPollingActive = true;
+				documentHeightPollingInterval = setInterval(viewportHeightPolling, 1000);
 			}
 
 			if (!adaptedToHeight) {
@@ -285,8 +287,8 @@ function WidgetUi (widgetContainer, config) {
 		document.removeEventListener('o.DOMContentLoaded', adjustStretchVertical);
 		window.removeEventListener('load', adjustStretchVertical);
 
-		clearInterval(viewportHeightPollingInterval);
-		viewportHeightPollingActive = false;
+		clearInterval(documentHeightPollingInterval);
+		documentHeightPollingActive = false;
 
 		self.clearHeight();
 		widgetContainer.classList.remove('alphaville-marketslive-chat--stretch-vertical');
