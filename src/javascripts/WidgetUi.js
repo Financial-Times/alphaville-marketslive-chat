@@ -228,6 +228,7 @@ function WidgetUi (widgetContainer, config) {
 		const viewportHeight = document.body.clientHeight;
 
 		if (viewportHeight !== lastDocumentHeight) {
+			console.log('marketslive-chat document height changed, resize');
 			adjustStretchVertical();
 		}
 	}
