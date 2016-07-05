@@ -249,8 +249,13 @@ function WidgetUi (widgetContainer, config) {
 			const nonContentHeight = chatHeight - temporaryContentHeight;
 			console.log('nonContentHeight', nonContentHeight);
 
-			const targetHeight = viewportHeight - nonChatHeight - nonContentHeight;
+			let targetHeight = viewportHeight - nonChatHeight - nonContentHeight;
 			console.log('targetHeight', targetHeight);
+
+			if (targetHeight < 50) {
+				targetHeight = 50;
+			}
+			console.log('targetHeight normalized', targetHeight);
 
 			elements.commentArea.style.overflow = "auto";
 			elements.commentArea.style.height = targetHeight + "px";
