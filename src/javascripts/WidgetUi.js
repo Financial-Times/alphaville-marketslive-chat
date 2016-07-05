@@ -263,7 +263,9 @@ function WidgetUi (widgetContainer, config) {
 			elements.commentArea.style.overflow = "auto";
 			elements.commentArea.style.height = targetHeight + "px";
 
-			lastDocumentHeight = document.body.clientHeight;
+			setTimeout(() => {
+				lastDocumentHeight = document.body.clientHeight;
+			}, 50);
 
 
 			scrollToLastComment();
