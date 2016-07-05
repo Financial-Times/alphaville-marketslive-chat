@@ -227,17 +227,30 @@ function WidgetUi (widgetContainer, config) {
 			}
 
 			const viewportHeight = oCommentUtilities.dom.windowSize().height;
+			console.log('viewportHeight', viewportHeight);
+
+
 			const bodyHeightBefore = document.body.clientHeight;
+			console.log('bodyHeightBefore', bodyHeightBefore);
+
 			const temporaryContentHeight = Math.max(viewportHeight, bodyHeightBefore);
 
 			elements.commentArea.style.height = (temporaryContentHeight) + "px";
 
 			const bodyHeightAfter = document.body.clientHeight;
+			console.log('bodyHeightAfter', bodyHeightAfter);
+
 			const chatHeight = widgetContainer.scrollHeight;
+			console.log('chatHeight', chatHeight);
+
 			const nonChatHeight = bodyHeightAfter - chatHeight;
+			console.log('nonChatHeight', nonChatHeight);
+
 			const nonContentHeight = chatHeight - temporaryContentHeight;
+			console.log('nonContentHeight', nonContentHeight);
 
 			const targetHeight = viewportHeight - nonChatHeight - nonContentHeight;
+			console.log('targetHeight', targetHeight);
 
 			elements.commentArea.style.overflow = "auto";
 			elements.commentArea.style.height = targetHeight + "px";
