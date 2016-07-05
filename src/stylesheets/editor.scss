@@ -49,6 +49,8 @@
 
 .alphaville-marketslive-chat--pseudonym {
 	cursor: default;
+	word-break: break-all;
+	display: inline-block;
 }
 
 .alphaville-marketslive-chat--editor-closed {
