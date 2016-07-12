@@ -45,7 +45,6 @@ function WidgetUi (widgetContainer, config) {
 
 			self.widgetContainer.querySelector('.alphaville-marketslive-chat--editor-closed').style.display = 'none';
 			self.widgetContainer.querySelector('.alphaville-marketslive-chat--editor-input').style.display = 'block';
-			self.widgetContainer.querySelector('.alphaville-marketslive-chat--editor-footer').style.display = 'block';
 		}
 	};
 
@@ -55,7 +54,6 @@ function WidgetUi (widgetContainer, config) {
 
 			self.widgetContainer.querySelector('.alphaville-marketslive-chat--editor-closed').style.display = 'block';
 			self.widgetContainer.querySelector('.alphaville-marketslive-chat--editor-input').style.display = 'none';
-			self.widgetContainer.querySelector('.alphaville-marketslive-chat--editor-footer').style.display = 'none';
 		}
 	};
 
