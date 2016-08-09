@@ -87,7 +87,7 @@ const Widget = function () {
 
 	const defaultDatetimeFormat = {
 		minutesUntilAbsoluteTime: -1,
-		absoluteFormat: 'hh:mm a'
+		absoluteFormat: 'h:mma'
 	};
 
 	this.config.datetimeFormat = defaultDatetimeFormat;
