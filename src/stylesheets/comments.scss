@@ -129,6 +129,10 @@
 	list-style-position: outside;
 	font-size: 13px;
 
+	.alphaville-marketslive-chat--comments-area {
+		-webkit-overflow-scrolling: touch;
+	}
+
 	p {
 		display: inline-block;
 		word-break: break-all;
