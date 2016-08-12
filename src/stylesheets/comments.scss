@@ -7,6 +7,10 @@
 
 .alphaville-marketslive-chat--comments-wrapper {
 	position: relative;
+
+	.alphaville-marketslive-chat--comments-area {
+		-webkit-overflow-scrolling: touch;
+	}
 }
 
 .alphaville-marketslive-chat--fade {
@@ -64,10 +68,6 @@
 		left: 0;
 		font-family: Arial;
 	}
-}
-
-.alphaville-marketslive-chat--comments-wrapper {
-	position: relative;
 }
 
 .alphaville-marketslive-chat--show-more {
@@ -128,10 +128,6 @@
 	list-style-type: none;
 	list-style-position: outside;
 	font-size: 13px;
-
-	.alphaville-marketslive-chat--comments-area {
-		-webkit-overflow-scrolling: touch;
-	}
 
 	p {
 		display: inline-block;
