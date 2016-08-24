@@ -56,19 +56,14 @@
 .alphaville-marketslive-chat--editor-closed {
 	display: none;
 
-	background: oColorsGetPaletteColor("white");
-	border: 1px solid #b2b2b2;
-	color: oColorsGetPaletteColor("grey-tint4");
-	margin-top: 41px;
-	margin-bottom: 42px;
-	padding: 5px 10px;
-	font-weight: bold;
-	font-size: 13px;
-	line-height: 13px;
-
-	.alphaville-marketslive-chat--lock-icon {
-		margin-right: 5px;
-	}
+	position: absolute;
+	top: 0;
+	padding: 10px 10%;
+	background: oColorsGetPaletteColor('warm-1');
+	left: 0;
+	font-weight: 500;
+	width: 80%;
+	z-index: 1;
 }
 
 .alphaville-marketslive-chat--editor-auth-container {

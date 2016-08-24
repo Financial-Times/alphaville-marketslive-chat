@@ -12,7 +12,8 @@ $o-overlay-is-silent: false;
 
 .alphaville-marketslive-chat {
 	font-family: $alphaville-marketslive-chat-font-family;
-	font-size: 12px;
+	font-size: 15px;
+	position: relative;
 
 	@import './src/stylesheets/generic';
 	@import './src/stylesheets/comments';
