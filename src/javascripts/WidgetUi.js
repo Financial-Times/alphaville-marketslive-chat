@@ -262,7 +262,7 @@ function WidgetUi (widgetContainer, config) {
 			}
 
 			elements.commentArea.style.overflow = "auto";
-			elements.commentArea.style.height = targetHeight + "px";
+			elements.commentArea.style.height = (targetHeight - 5) + "px"; // to avoid the scrollbar to appear/disappear
 
 			setTimeout(() => {
 				lastDocumentHeight = document.body.clientHeight;
