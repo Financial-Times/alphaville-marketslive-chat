@@ -20,9 +20,11 @@
 
 	.alphaville-marketslive-chat--notification-icon-downwards {
 		@include oIconsGetIcon('arrow-downwards', oColorsGetPaletteColor('white'), 12);
+		margin-bottom: -2px;
 	}
 
 	.alphaville-marketslive-chat--notification-icon-upwards {
 		@include oIconsGetIcon('arrow-upwards', oColorsGetPaletteColor('white'), 12);
+		margin-bottom: -2px;
 	}
 }
