@@ -131,7 +131,7 @@
 
 	p {
 		display: inline-block;
-		word-break: break-all;
+		word-break: break-word;
 	}
 
 	&.alphaville-marketslive-chat--delete-progress {
@@ -158,7 +158,7 @@
 		font-weight: bold;
 		float: right;
 		color: #6e6964;
-		word-break: break-all;
+		word-break: break-word;
 	}
 
 	.alphaville-marketslive-chat--content {
