@@ -243,44 +243,46 @@ function WidgetUi (widgetContainer, config) {
 				}
 			}
 
-			const viewportHeight = oCommentUtilities.dom.windowSize().height;
-			const bodyHeightBefore = document.body.clientHeight;
-
-			const temporaryContentHeight = Math.max(viewportHeight, bodyHeightBefore);
-			elements.commentArea.style.height = (temporaryContentHeight) + "px";
-
-			const bodyHeightAfter = document.body.clientHeight;
-
-			const chatHeight = widgetContainer.scrollHeight;
-			const nonChatHeight = bodyHeightAfter - chatHeight;
-			const nonContentHeight = chatHeight - temporaryContentHeight;
-
-			let targetHeight = viewportHeight - nonChatHeight - nonContentHeight;
-
-			if (targetHeight + nonContentHeight < 475) {
-				targetHeight = 475 - nonContentHeight;
-			}
-
-			elements.commentArea.style.overflow = "auto";
-			elements.commentArea.style.height = (targetHeight - 5) + "px"; // to avoid the scrollbar to appear/disappear
-
 			setTimeout(() => {
-				lastDocumentHeight = document.body.clientHeight;
-			}, 50);
+				const viewportHeight = oCommentUtilities.dom.windowSize().height;
+				const bodyHeightBefore = document.body.clientHeight;
+
+				const temporaryContentHeight = Math.max(viewportHeight, bodyHeightBefore) + 1000;
+				elements.commentArea.style.height = (temporaryContentHeight) + "px";
+
+				const bodyHeightAfter = document.body.clientHeight;
+
+				const chatHeight = widgetContainer.scrollHeight;
+				const nonChatHeight = bodyHeightAfter - chatHeight;
+				const nonContentHeight = chatHeight - temporaryContentHeight;
+
+				let targetHeight = viewportHeight - nonChatHeight - nonContentHeight;
+
+				if (targetHeight + nonContentHeight < 480) {
+					targetHeight = 480 - nonContentHeight;
+				}
+
+				elements.commentArea.style.overflow = "auto";
+				elements.commentArea.style.height = (targetHeight - 5) + "px"; // to avoid the scrollbar to appear/disappear
+
+				setTimeout(() => {
+					lastDocumentHeight = document.body.clientHeight;
+				}, 50);
 
 
-			scrollToLastComment();
+				scrollToLastComment();
 
-			if (!documentHeightPollingActive) {
-				documentHeightPollingActive = true;
-				documentHeightPollingInterval = setInterval(viewportHeightPolling, 1000);
-			}
+				if (!documentHeightPollingActive) {
+					documentHeightPollingActive = true;
+					documentHeightPollingInterval = setInterval(viewportHeightPolling, 1000);
+				}
 
-			if (!adaptedToHeight) {
-				adaptedToHeight = true;
+				if (!adaptedToHeight) {
+					adaptedToHeight = true;
 
-				initNotification();
-			}
+					initNotification();
+				}
+			}, 100);
 		};
 
 		pollForContainer(stretch);
