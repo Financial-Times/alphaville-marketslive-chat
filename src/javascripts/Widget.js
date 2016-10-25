@@ -379,6 +379,7 @@ const Widget = function () {
 	if (self.config.stretchVertical) {
 		if (!destroyed) {
 			self.stretchVertical();
+			self.scrollToLastComment();
 		}
 	}
 
