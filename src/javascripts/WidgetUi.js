@@ -6,7 +6,6 @@ const NewCommentNotification = require('./NewCommentNotification.js');
 const templates = require('./templates.js');
 const utils = require('./utils.js');
 const envConfig = require('./config.js');
-const oGrid = require('o-grid');
 
 function WidgetUi (widgetContainer, config) {
 	oCommentUi.WidgetUi.apply(this, arguments);
@@ -219,21 +218,6 @@ function WidgetUi (widgetContainer, config) {
 		pollForContainer(clear);
 	};
 
-
-
-	let documentHeightPollingInterval;
-	let documentHeightPollingActive = false;
-	let lastDocumentHeight;
-
-
-	function viewportHeightPolling () {
-		const viewportHeight = document.body.clientHeight;
-
-		if (viewportHeight !== lastDocumentHeight) {
-			adjustStretchVertical();
-		}
-	}
-
 	function adjustStretchVertical () {
 		const stretch = function () {
 			if (!adaptedToHeight) {
@@ -244,38 +228,12 @@ function WidgetUi (widgetContainer, config) {
 			}
 
 			setTimeout(() => {
-				const viewportHeight = oCommentUtilities.dom.windowSize().height;
-				const bodyHeightBefore = document.body.clientHeight;
-
-				const temporaryContentHeight = Math.max(viewportHeight, bodyHeightBefore) + 1000;
-				elements.commentArea.style.height = (temporaryContentHeight) + "px";
-
-				const bodyHeightAfter = document.body.clientHeight;
-
+				const contentHeight = elements.commentArea.clientHeight;
 				const chatHeight = widgetContainer.scrollHeight;
-				const nonChatHeight = bodyHeightAfter - chatHeight;
-				const nonContentHeight = chatHeight - temporaryContentHeight;
-
-				let targetHeight = viewportHeight - nonChatHeight - nonContentHeight;
-
-				if (targetHeight + nonContentHeight < 480) {
-					targetHeight = 480 - nonContentHeight;
-				}
+				const nonContentHeight = chatHeight - contentHeight;
 
 				elements.commentArea.style.overflow = "auto";
-				elements.commentArea.style.height = (targetHeight - 5) + "px"; // to avoid the scrollbar to appear/disappear
-
-				setTimeout(() => {
-					lastDocumentHeight = document.body.clientHeight;
-				}, 50);
-
-
-				scrollToLastComment();
-
-				if (!documentHeightPollingActive) {
-					documentHeightPollingActive = true;
-					documentHeightPollingInterval = setInterval(viewportHeightPolling, 1000);
-				}
+				elements.commentArea.style.height = (480 - nonContentHeight) + "px";
 
 				if (!adaptedToHeight) {
 					adaptedToHeight = true;
@@ -293,9 +251,6 @@ function WidgetUi (widgetContainer, config) {
 		document.removeEventListener('o.DOMContentLoaded', adjustStretchVertical);
 		window.removeEventListener('load', adjustStretchVertical);
 
-		clearInterval(documentHeightPollingInterval);
-		documentHeightPollingActive = false;
-
 		self.clearHeight();
 		widgetContainer.classList.remove('alphaville-marketslive-chat--stretch-vertical');
 	};
@@ -307,6 +262,14 @@ function WidgetUi (widgetContainer, config) {
 
 		adjustStretchVertical();
 		widgetContainer.classList.add('alphaville-marketslive-chat--stretch-vertical');
+	};
+
+	this.scrollToLastComment = function () {
+		if (config.orderType === "inverted") {
+			elements.commentArea.scrollTop = elements.commentArea.scrollHeight - elements.commentArea.clientHeight + 1;
+		} else {
+			elements.commentArea.scrollTop = 0;
+		}
 	};
 
 
@@ -348,15 +311,6 @@ function WidgetUi (widgetContainer, config) {
 
 		function initNotification () {
 			newCommentNotification = new NewCommentNotification(self, elements.commentArea, (config.orderType === "inverted" ? 'bottom' : 'top'));
-		}
-
-
-		function scrollToLastComment () {
-			if (config.orderType === "inverted") {
-				elements.commentArea.scrollTop = elements.commentArea.scrollHeight - elements.commentArea.clientHeight + 1;
-			} else {
-				elements.commentArea.scrollTop = 0;
-			}
 		}
 
 		function notifyNewComment () {
