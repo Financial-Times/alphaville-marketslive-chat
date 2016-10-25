@@ -362,7 +362,6 @@ const Widget = function () {
 	};
 
 
-	this.scrollToLastComment = this.ui.scrollToLastComment;
 
 	this.clearHeight = function () {
 		self.ui.clearHeight();
@@ -379,7 +378,6 @@ const Widget = function () {
 	if (self.config.stretchVertical) {
 		if (!destroyed) {
 			self.stretchVertical();
-			self.scrollToLastComment();
 		}
 	}
 

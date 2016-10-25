@@ -128,7 +128,7 @@ function WidgetUi (widgetContainer, config) {
 		};
 
 
-
+		scrollToLastComment();
 
 		elements.signIn.addEventListener('click', function (evt) {
 			events.trigger('signIn');
@@ -264,16 +264,15 @@ function WidgetUi (widgetContainer, config) {
 		widgetContainer.classList.add('alphaville-marketslive-chat--stretch-vertical');
 	};
 
-	this.scrollToLastComment = function () {
-		if (config.orderType === "inverted") {
-			elements.commentArea.scrollTop = elements.commentArea.scrollHeight - elements.commentArea.clientHeight + 1;
-		} else {
-			elements.commentArea.scrollTop = 0;
-		}
-	};
-
 
 	// Specific functions for the widget that was shrinked to a fixed height
+		function scrollToLastComment () {
+			if (config.orderType === "inverted") {
+				elements.commentArea.scrollTop = elements.commentArea.scrollHeight - elements.commentArea.clientHeight + 1;
+			} else {
+				elements.commentArea.scrollTop = 0;
+			}
+		};
 
 		function initScrollPagination () {
 			scrollMonitor = new oCommentUtilities.dom.ScrollMonitor(elements.commentArea, function (scrollPos) {
