@@ -60,6 +60,8 @@ function WidgetUi (widgetContainer, config) {
 		}
 	};
 
+
+	let rendered = false;
 	this.render = function (commentsData, adminMode, paginationEnabled) {
 		let i;
 
@@ -183,6 +185,9 @@ function WidgetUi (widgetContainer, config) {
 				}
 			});
 		}
+
+
+		rendered = true;
 	};
 
 	this.enablePagination = function () {
@@ -194,15 +199,15 @@ function WidgetUi (widgetContainer, config) {
 	};
 
 	// poll for the existence of container
-	function pollForContainer (callback) {
-		const pollForContainerInterv = setInterval(function () {
+	function pollForRendering (callback) {
+		const pollForRenderingInterv = setInterval(function () {
 			if (destroyed) {
-				clearInterval(pollForContainerInterv);
+				clearInterval(pollForRenderingInterv);
 				return;
 			}
 
-			if (self.widgetContainer.querySelector('.alphaville-marketslive-chat--editor-container')) {
-				clearInterval(pollForContainerInterv);
+			if (rendered) {
+				clearInterval(pollForRenderingInterv);
 				callback();
 			}
 		}, 200);
@@ -214,35 +219,39 @@ function WidgetUi (widgetContainer, config) {
 			elements.commentArea.style.height = 'auto';
 		};
 
-		pollForContainer(clear);
+		pollForRendering(clear);
 	};
 
 	function adjustStretchVertical () {
-		const stretch = function () {
-			if (!adaptedToHeight) {
-				initScrollFade();
-				if (isPagination) {
-					initScrollPagination();
-				}
-			}
-
-			setTimeout(() => {
-				const contentHeight = elements.commentArea.clientHeight;
+		return new Promise((resolve) => {
+			const stretch = function () {
 				const chatHeight = widgetContainer.scrollHeight;
-				const nonContentHeight = chatHeight - contentHeight;
 
-				elements.commentArea.style.overflow = "auto";
-				elements.commentArea.style.height = (480 - nonContentHeight) + "px";
+				if (chatHeight !== 0) {
+					if (!adaptedToHeight) {
+						adaptedToHeight = true;
 
-				if (!adaptedToHeight) {
-					adaptedToHeight = true;
+						initScrollFade();
+						if (isPagination) {
+							initScrollPagination();
+						}
 
-					initNotification();
+						const contentHeight = elements.commentArea.clientHeight;
+
+						const nonContentHeight = chatHeight - contentHeight;
+
+						elements.commentArea.style.overflow = "auto";
+						elements.commentArea.style.height = (480 - nonContentHeight) + "px";
+
+						initNotification();
+
+						resolve();
+					}
 				}
-			}, 100);
-		};
+			};
 
-		pollForContainer(stretch);
+			pollForRendering(stretch);
+		});
 	}
 
 	this.clearStretch = function () {
@@ -259,10 +268,8 @@ function WidgetUi (widgetContainer, config) {
 		document.addEventListener('o.DOMContentLoaded', adjustStretchVertical);
 		window.addEventListener('load', adjustStretchVertical);
 
-		adjustStretchVertical();
+		adjustStretchVertical().then(scrollToLastComment);
 		widgetContainer.classList.add('alphaville-marketslive-chat--stretch-vertical');
-
-		pollForContainer(scrollToLastComment);
 	};
 
 
