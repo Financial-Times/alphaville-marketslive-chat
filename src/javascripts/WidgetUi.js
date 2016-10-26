@@ -262,7 +262,7 @@ function WidgetUi (widgetContainer, config) {
 		adjustStretchVertical();
 		widgetContainer.classList.add('alphaville-marketslive-chat--stretch-vertical');
 
-		scrollToLastComment();
+		pollForContainer(scrollToLastComment);
 	};
 
 
