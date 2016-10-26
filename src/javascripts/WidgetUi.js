@@ -128,7 +128,6 @@ function WidgetUi (widgetContainer, config) {
 		};
 
 
-		scrollToLastComment();
 
 		elements.signIn.addEventListener('click', function (evt) {
 			events.trigger('signIn');
@@ -262,6 +261,8 @@ function WidgetUi (widgetContainer, config) {
 
 		adjustStretchVertical();
 		widgetContainer.classList.add('alphaville-marketslive-chat--stretch-vertical');
+
+		scrollToLastComment();
 	};
 
 
