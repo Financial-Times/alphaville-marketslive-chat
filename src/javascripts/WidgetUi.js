@@ -231,7 +231,6 @@ function WidgetUi (widgetContainer, config) {
 					if (!adaptedToHeight) {
 						adaptedToHeight = true;
 
-						initScrollFade();
 						if (isPagination) {
 							initScrollPagination();
 						}
@@ -293,24 +292,6 @@ function WidgetUi (widgetContainer, config) {
 					if (scrollPos + elements.commentArea.clientHeight > 0.8 * elements.commentArea.scrollHeight) {
 						events.trigger('nextPage');
 						oCommentUtilities.logger.debug('nextPage');
-					}
-				}
-			});
-		}
-
-		function initScrollFade () {
-			const fadeTopElement = elements.commentAreaWrapper.querySelector('.alphaville-marketslive-chat--fade-top');
-			const fadeBottomElement = elements.commentAreaWrapper.querySelector('.alphaville-marketslive-chat--fade-bottom');
-
-			scrollMonitor = new oCommentUtilities.dom.ScrollMonitor(elements.commentArea, function (scrollPos) {
-				if (elements.commentArea.scrollHeight !== elements.commentArea.clientHeight) {
-					fadeTopElement.style.display = 'block';
-					fadeBottomElement.style.display = 'block';
-
-					if (scrollPos === 0) {
-						fadeTopElement.style.display = 'none';
-					} else if (scrollPos + elements.commentArea.clientHeight === elements.commentArea.scrollHeight) {
-						fadeBottomElement.style.display = 'none';
 					}
 				}
 			});
