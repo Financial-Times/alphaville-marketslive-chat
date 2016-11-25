@@ -361,7 +361,7 @@ const Widget = function () {
 		}
 	};
 
-
+	this.scrollToLastComment = this.ui.scrollToLastComment;
 
 	this.clearHeight = function () {
 		self.ui.clearHeight();
