@@ -260,8 +260,8 @@ function WidgetUi (widgetContainer, config) {
 
 			let targetHeight = viewportHeight - nonChatHeight - nonContentHeight;
 
-			if (targetHeight + nonContentHeight < 480) {
-				targetHeight = 480 - nonContentHeight;
+			if (targetHeight + nonContentHeight < 200) {
+				targetHeight = 200 - nonContentHeight;
 			}
 
 			elements.commentArea.style.overflow = "auto";
