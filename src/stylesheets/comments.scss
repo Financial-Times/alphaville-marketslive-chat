@@ -24,7 +24,7 @@
 		position: absolute;
 		top: 50%;
 		width: 100%;
-		border-top: 1px solid oColorsGetPaletteColor("pink-tint2");
+		border-top: 1px solid oColorsGetPaletteColor("black-10");
 	}
 
 	.alphaville-marketslive-chat--show-more-label {
@@ -39,7 +39,7 @@
 	}
 
 	.alphaville-marketslive-chat--show-more-label:active {
-		background: oColorsGetPaletteColor("pink-tint4");
+		background: oColorsGetPaletteColor("black-30");
 	}
 }
 
@@ -122,7 +122,7 @@
 	}
 
 	.alphaville-marketslive-chat--blocked {
-		background-color: oColorsGetPaletteColor("red");
+		background-color: oColorsGetPaletteColor("crimson");
 		border-radius: 15px;
 		color: white;
 		padding: 2px 7px;
@@ -132,7 +132,7 @@
 	}
 
 	.alphaville-marketslive-chat--pending {
-		background-color: oColorsGetPaletteColor("orange");
+		background-color: oColorsGetPaletteColor("mandarin");
 		border-radius: 15px;
 		color: white;
 		padding: 2px 7px;
