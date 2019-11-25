@@ -6,7 +6,6 @@ const NewCommentNotification = require('./NewCommentNotification.js');
 const templates = require('./templates.js');
 const utils = require('./utils.js');
 const envConfig = require('./config.js');
-const oGrid = require('o-grid');
 
 function WidgetUi (widgetContainer, config) {
 	oCommentUi.WidgetUi.apply(this, arguments);

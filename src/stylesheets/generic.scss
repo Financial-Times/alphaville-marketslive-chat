@@ -1,9 +1,9 @@
 a {
-	color: oColorsGetPaletteColor("oxford");
+	color: oColorsByName("oxford");
 	text-decoration: none;
 
 	&:hover {
-		color: oColorsGetPaletteColor("black");
+		color: oColorsByName("black");
 	}
 }
 
