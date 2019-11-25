@@ -1,6 +1,6 @@
 const oCommentUi = require('o-comment-ui');
 const oCommentApi = require('o-comment-api');
-const Overlay = require('o-overlay');
+const Overlay = require('o-overlay').default;
 
 /**
  * Shows a dialog for setting the initial pseudonym (shown when the user doesn't have a pseudonym set).

@@ -28,10 +28,10 @@
 		top: 100%;
 		left: 0;
 		z-index: 1000;
-		border: 1px solid oColorsGetPaletteColor("black-30");
+		border: 1px solid oColorsByName("black-30");
 
 		li {
-			border-bottom: 1px solid  oColorsGetPaletteColor("black-30");
+			border-bottom: 1px solid  oColorsByName("black-30");
 			white-space: nowrap;
 		}
 
@@ -59,7 +59,7 @@
 	position: absolute;
 	top: 0;
 	padding: 10px 10%;
-	background: oColorsGetPaletteColor('wheat');
+	background: oColorsByName('wheat');
 	left: 0;
 	font-weight: 500;
 	width: 80%;
@@ -73,12 +73,12 @@
 .alphaville-marketslive-chat--editor-input {
 	border-top: 1px solid #d66f6c;
 	padding: 5px 10px;
-	background: oColorsGetPaletteColor("white");
+	background: oColorsByName("white");
 	cursor: text;
 	position: relative;
 
 	&.disabled {
-		background: oColorsGetPaletteColor("black-10");
+		background: oColorsByName("black-10");
 	}
 
 	textarea {
@@ -89,12 +89,12 @@
 		height: 30px;
 		margin-top: 5px;
 		outline: 0;
-		color: oColorsGetPaletteColor("black-80");
+		color: oColorsByName("black-80");
 		font-family: $alphaville-marketslive-chat-font-family;
 		font-size: 16px;
 
 		&[disabled] {
-			background: oColorsGetPaletteColor("black-10");
+			background: oColorsByName("black-10");
 		}
 	}
 }
@@ -105,14 +105,14 @@
 	left: 0;
 	max-width: 50%;
 	padding: 5px 10px;
-	background: oColorsGetPaletteColor("crimson");
-	color: oColorsGetPaletteColor("white");
+	background: oColorsByName("crimson");
+	color: oColorsByName("white");
 	line-height: 15px;
 	display: none;
 }
 
 .alphaville-marketslive-chat--editor-footer {
-	border: 1px solid oColorsGetPaletteColor("black-10");
+	border: 1px solid oColorsByName("black-10");
 	border-top: 0;
 }
 
